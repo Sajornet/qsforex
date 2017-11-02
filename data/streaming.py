@@ -12,7 +12,7 @@ from qsforex.data.price import PriceHandler
 
 class StreamingForexPrices(PriceHandler):
     def __init__(
-        self, domain, access_token, 
+        self, domain, access_token,
         account_id, pairs, events_queue
     ):
         self.domain = domain
@@ -77,13 +77,13 @@ class StreamingForexPrices(PriceHandler):
                     return
                 if "instrument" in msg:
                     #self.logger.debug(msg)
-                    getcontext().rounding = ROUND_HALF_DOWN 
+                    getcontext().rounding = ROUND_HALF_DOWN
                     instrument = msg["instrument"].replace("_", "")
                     time = msg["time"]
-                    bid = Decimal(str(msg["bids"][1]["price"])).quantize(
+                    bid = Decimal(str(msg["bids"][0]["price"])).quantize(
                         Decimal("0.00001")
                     )
-                    ask = Decimal(str(msg["asks"][1]["price"])).quantize(
+                    ask = Decimal(str(msg["asks"][0]["price"])).quantize(
                         Decimal("0.00001")
                     )
                     self.prices[instrument]["bid"] = bid
