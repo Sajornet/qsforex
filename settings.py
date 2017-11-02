@@ -24,6 +24,5 @@ API_DOMAIN = ENVIRONMENTS["api"][DOMAIN]
 ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', None)
 ACCOUNT_ID = os.environ.get('ACCOUNT_ID', None)
 
-
 BASE_CURRENCY = "USD"
 EQUITY = Decimal("100000.00")
