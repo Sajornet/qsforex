@@ -2,7 +2,7 @@ from decimal import Decimal
 import os
 
 
-ENVIRONMENTS = { 
+ENVIRONMENTS = {
     "streaming": {
         "real": "stream-fxtrade.oanda.com",
         "practice": "stream-fxpractice.oanda.com",
@@ -23,6 +23,7 @@ STREAM_DOMAIN = ENVIRONMENTS["streaming"][DOMAIN]
 API_DOMAIN = ENVIRONMENTS["api"][DOMAIN]
 ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', None)
 ACCOUNT_ID = os.environ.get('ACCOUNT_ID', None)
+
 
 BASE_CURRENCY = "USD"
 EQUITY = Decimal("100000.00")
